@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,4 +38,41 @@
       </nav>
     
 </body>
-</html>
+</html> --%>
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:layout>
+	<jsp:attribute name="title">
+		<c:if test="${ categorie == null }">Ajouter une catégorie</c:if>
+		<c:if test="${ categorie != null }">Modifier la catégorie "${ categorie.libelle }"</c:if>
+	</jsp:attribute>
+	
+	<jsp:body>
+		<form method="POST">
+			<div class="form-group row">
+				<label for="libelle" class="col-sm-2 col-form-label">Libellé</label>
+				<div class="col-sm-10">
+					<input	type="text"
+							class="form-control"
+							id="libelle" name="libelle"
+							value="${ categorie.libelle }"
+							placeholder="Libellé" />
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<a class="col-sm-2 mr-5 btn btn-danger" href="categories">Annuler</a>
+				<c:if test="${ categorie == null }">
+					<input type="submit" class="col-sm-2 btn btn-success" value="Ajouter" />
+				</c:if>
+				
+				<c:if test="${ categorie != null }">
+					<input type="submit" class="col-sm-2 btn btn-warning" value="Modifier" />
+				</c:if>
+			</div>
+  		</form>
+	</jsp:body>
+</t:layout>
