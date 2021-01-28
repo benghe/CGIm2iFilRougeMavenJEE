@@ -33,8 +33,8 @@ public class InscriptionAdoptantServlet extends HttpServlet {
 		String adresseTownAdoptant = req.getParameter("inputAdresseTown");
 		String passwordAdoptant = req.getParameter("inputPassword");
 
-		String adresseAdoptant = adresseNumberAdoptant + ", " + adresseStreetAdoptant + " " + adressePostalCodeAdoptant
-				+ " " + adresseTownAdoptant;
+		String adresseAdoptant = adresseNumberAdoptant + ", " + adresseStreetAdoptant + ", " + adressePostalCodeAdoptant
+				+ ", " + adresseTownAdoptant;
 		
 		Personne nouvellePersonnnne=new Personne();
 		nouvellePersonnnne.setNom(nomAdoptant);

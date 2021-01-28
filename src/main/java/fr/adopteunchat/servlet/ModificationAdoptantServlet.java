@@ -26,6 +26,25 @@ public class ModificationAdoptantServlet extends HttpServlet{
 		
 		req.getSession().setAttribute("personneAModifier", personneAModifier);
 		
+		String adressePersonneAModifier=personneAModifier.getAdresse();
+		
+		int firstvirgule=adressePersonneAModifier.indexOf(',');
+		int secondvirgule=adressePersonneAModifier.indexOf(',', firstvirgule+1);
+		int thirdvirgule=adressePersonneAModifier.indexOf(',', secondvirgule+1);
+		
+		
+		String numero=adressePersonneAModifier.substring(0, firstvirgule);
+		String voie=adressePersonneAModifier.substring(firstvirgule+2, secondvirgule);
+		String codePostal=adressePersonneAModifier.substring(secondvirgule+2, thirdvirgule);
+		String ville=adressePersonneAModifier.substring(thirdvirgule+2, adressePersonneAModifier.length());
+
+		
+		req.getSession().setAttribute("numero", numero);
+		req.getSession().setAttribute("voie", voie);
+		req.getSession().setAttribute("codePostal", codePostal);
+		req.getSession().setAttribute("ville", ville);
+		
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/modification-de-mes-infos-adoptant.jsp").forward(req,resp);
 	}
 	

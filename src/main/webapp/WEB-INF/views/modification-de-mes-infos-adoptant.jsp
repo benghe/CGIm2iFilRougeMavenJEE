@@ -68,7 +68,7 @@
                     <label for="inputAdresseNumber" style="width: 150px;" class="col-form-label">Numéro</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" id="inputAdresseNumber" class="form-control">
+                    <input type="text" id="inputAdresseNumber" class="form-control" placeholder="${ numero }">
                 </div>
             </div>
     
@@ -77,7 +77,7 @@
                     <label for="inputAdresseStreet" style="width: 150px;" class="col-form-label">Voie</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" id="inputAdresseStreet" class="form-control">
+                    <input type="text" id="inputAdresseStreet" class="form-control" placeholder="${ voie }">
                 </div>
             </div>
     
@@ -86,7 +86,7 @@
                     <label for="inputAdressePostalCode" style="width: 150px;" class="col-form-label">Code Postal</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" id="inputAdressePostalCode" class="form-control">
+                    <input type="text" id="inputAdressePostalCode" class="form-control" placeholder="${ codePostal }">
                 </div>
             </div>
     
@@ -95,7 +95,7 @@
                     <label for="inputAdresseTown"  style="width: 150px;" class="col-form-label">Ville</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" id="inputAdresseTown" class="form-control">
+                    <input type="text" id="inputAdresseTown" class="form-control" placeholder="${ ville }">
                 </div>
             </div>
     

@@ -32,8 +32,8 @@ public class InscriptionRefugeServlet extends HttpServlet{
 		String adresseTownRefuge = req.getParameter("inputAdresseTown");
 		String passwordRefuge = req.getParameter("inputPassword");
 
-		String adresseRefuge = adresseNumberRefuge + ", " + adresseStreetRefuge + " " + adressePostalCodeRefuge
-				+ " " + adresseTownRefuge;
+		String adresseRefuge = adresseNumberRefuge + ", " + adresseStreetRefuge + ", " + adressePostalCodeRefuge
+				+ ", " + adresseTownRefuge;
 		
 		Personne nouvellePersonnnne=new Personne();
 		nouvellePersonnnne.setNom(nomRefuge);

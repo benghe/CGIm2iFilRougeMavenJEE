@@ -56,7 +56,7 @@
 		                <label for="inputDateOfBirth" style="width: 150px;" class="col-form-label">Date de naissance</label>
 		            </div>
 		            <div class="col-auto">
-		                <input type="date" id="inputDateOfBirth" name="inputDateOfBirth" class="form-control">
+		               <input type="date" id="inputDateOfBirth" name="inputDateOfBirth" class="form-control">
 		            </div>
 		        </div>
 		
