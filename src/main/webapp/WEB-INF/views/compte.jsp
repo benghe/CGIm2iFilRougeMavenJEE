@@ -35,17 +35,17 @@
                   modifier vos préférences et gérer vos abonnements :
                 </div>
                 
-                <form>
+                <form method="POST">
                     <div class="mb-3">
                       <label for="InputEmail" class="form-label">Adresse mail</label>
                       <input type="email" class="form-control"
-									id="InputEmail" aria-describedby="emailHelp">
+									id="InputEmail" name="InputEmail" aria-describedby="emailHelp">
                       <div id="emailHelp" class="form-text"></div>
                     </div>
                     <div class="mb-3">
                       <label for="InputPassword" class="form-label">Mot de passe</label>
                       <input type="password" class="form-control"
-									id="InputPassword">
+									id="InputPassword" name="InputPassword">
                     </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input"

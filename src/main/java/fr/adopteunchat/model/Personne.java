@@ -120,7 +120,7 @@ public class Personne {
 	 */
 	public Personne(int id, String nom, String prenom, String mail, String telephone, String adresse, String password,
 			String dateNaissance, String type) {
-		super();
+		
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;

@@ -17,7 +17,7 @@
                     <label for="inputLastname" style="width: 150px;" id="inputLastname" class="col-form-label">Nom</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" id="inputLastname" class="form-control">
+                    <input type="text" id="inputLastname" class="form-control" placeholder="${ personneAModifier.getNom() }">
                 </div>
             </div>
     
@@ -26,7 +26,7 @@
                     <label for="inputFirstname" style="width: 150px;" class="col-form-label">Prénom</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" id="inputFirstname" class="form-control">
+                    <input type="text" id="inputFirstname" class="form-control" placeholder="${ personneAModifier.getPrenom() }">
                 </div>
             </div>
     
@@ -35,7 +35,7 @@
                     <label for="inputEmail" style="width: 150px;" class="col-form-label">Email</label>
                 </div>
                 <div class="col-auto">
-                    <input type="email" id="inputEmail" class="form-control">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="${ personneAModifier.getMail() }">
                 </div>
             </div>
     
@@ -44,7 +44,7 @@
                     <label for="inputPhone" style="width: 150px;" class="col-form-label">Numéro de téléphone</label>
                 </div>
                 <div class="col-auto">
-                    <input type="tel" id="inputPhone" class="form-control" pattern="[0-9]{10}" placeholder="06 00 00 00 00">
+                    <input type="tel" id="inputPhone" class="form-control" pattern="[0-9]{10}" placeholder="${ personneAModifier.getTelephone() }">
                 </div>
             </div>
     
@@ -53,7 +53,7 @@
                     <label for="inputDateOfBirth" style="width: 150px;" class="col-form-label">Date de naissance</label>
                 </div>
                 <div class="col-auto">
-                    <input type="date" id="inputDateOfBirth" class="form-control">
+                    <input type="date" id="inputDateOfBirth" class="form-control" placeholder="${ personneAModifier.getDateNaissance() }">
                 </div>
             </div>
     
