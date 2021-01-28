@@ -10,27 +10,21 @@
 	
 
         <div class="container">
-            <div style="margin-top: 30px; margin-bottom: 30px;">
-                <h4>
-                    Modification de mes informations
-                </h4>
-            </div>
-            
-            <div class="row" style="margin: 5px;">
+           <div class="row" style="margin: 5px;">
                 <div class="col-auto">
                     <label for="inputLastname" style="width: 150px;" id="inputLastname" class="col-form-label">Nom</label>
                 </div>
                 <div class="col-auto">
-                    <input type="text" id="inputLastname" class="form-control">
+                    <input type="text" id="inputLastname" class="form-control" placeholder="${ personneAModifier.getNom() }">
                 </div>
             </div>
-    
+           
             <div class="row" style="margin: 5px;">
                 <div class="col-auto">
                     <label for="inputEmail" style="width: 150px;" class="col-form-label">Email</label>
                 </div>
                 <div class="col-auto">
-                    <input type="email" id="inputEmail" class="form-control">
+                    <input type="email" id="inputEmail" class="form-control" placeholder="${ personneAModifier.getMail() }">
                 </div>
             </div>
     
@@ -39,10 +33,10 @@
                     <label for="inputPhone" style="width: 150px;" class="col-form-label">Numéro de téléphone</label>
                 </div>
                 <div class="col-auto">
-                    <input type="tel" id="inputPhone" class="form-control" pattern="[0-9]{10}" placeholder="06 00 00 00 00">
+                    <input type="tel" id="inputPhone" class="form-control" pattern="[0-9]{10}" placeholder="${ personneAModifier.getTelephone() }">
                 </div>
             </div>
-
+      
             <div style="margin-top: 30px;">
                 <h5>
                     Adresse:
@@ -123,6 +117,8 @@
     
             <a href="mon-espace" class="btn btn-secondary" role="button" aria-pressed="true">Annuler</a>
             <button type="submit" class="btn btn-success">Enregistrer mes modifications</button>
+
+    
         </div>
 
 	</jsp:body>

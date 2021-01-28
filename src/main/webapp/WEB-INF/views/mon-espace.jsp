@@ -1,8 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
 
 <t:layout>
 	<jsp:attribute name="title">
@@ -23,10 +21,18 @@
                 <div class="row" style="border: 30px;">
                     <!-- page de modification personnalisée en fonction du type -->
                     <div>
-
-                        <a href="modification-adoptant" class="btn btn-secondary" 
-                        role="button" aria-pressed="true">Modifier mes informations</a>
-
+						<c:if test="${personneAModifier.getType()=='Adoptant'}">
+						
+							<a href="modification-adoptant" class="btn btn-secondary" 
+	                       		 role="button" aria-pressed="true">Modifier mes informations</a>
+						
+						</c:if>
+						
+						<c:if test="${personneAModifier.getType()=='Refuge'}">
+							 <a href="modification-refuge" class="btn btn-secondary" 
+                        		role="button" aria-pressed="true">Modifier mes informations</a>
+						</c:if>
+                        
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                         Supprimer mon compte
@@ -47,6 +53,7 @@
       </div>
 
   
+
     <!-- Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -67,7 +74,6 @@
         </div>
         </div>
     </div>
-
 
 	</jsp:body>
 	
