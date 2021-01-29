@@ -98,6 +98,51 @@ public class PersonneDaoSql extends DaoSql implements IPersonneDao{
 		
 		
 	}
+	
+	public Personne findByEmail(String email) {
+		
+		Personne maPersonne=new Personne();
+		
+		
+		try {
+			this.openConnection();
+			
+			PreparedStatement monStatement = this.connexionSql.prepareStatement("SELECT * FROM personne WHERE PER_MAIL=?");
+			
+			//REMPLIR LES ? (Paramètre indexés)
+			monStatement.setString(1, email);
+			
+			ResultSet monResultat = monStatement.executeQuery();
+			
+			// Récupération du résultat
+			
+			monResultat.next();
+
+			maPersonne.setId(monResultat.getInt("PER_ID"));
+			maPersonne.setNom(monResultat.getString("PER_NOM"));
+			maPersonne.setPrenom(monResultat.getString("PER_PRENOM"));
+			maPersonne.setMail(monResultat.getString("PER_MAIL"));
+			maPersonne.setTelephone(monResultat.getString("PER_TELEPHONE"));
+			maPersonne.setAdresse(monResultat.getString("PER_ADRESSE"));
+			maPersonne.setPassword(monResultat.getString("PER_PASSWORD"));
+			maPersonne.setDateNaissance(monResultat.getString("PER_DATE_NAISSANCE"));
+			maPersonne.setType(monResultat.getString("PER_TYPE"));
+				
+		} 
+		
+		catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}		
+		
+		finally {
+			this.closeConnection();
+		}
+		
+		return maPersonne;
+		
+		
+	}
+
 
 	@Override
 	public Personne add(Personne entity) {
