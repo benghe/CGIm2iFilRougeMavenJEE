@@ -32,6 +32,7 @@
 							 <a href="modification-refuge" class="btn btn-secondary" 
                         		role="button" aria-pressed="true">Modifier mes informations</a>
 						</c:if>
+						                 
                         
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
@@ -69,7 +70,13 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Non</button>
-            <button type="button" class="btn btn-success">Oui</button>
+            
+            <form method="POST">
+            
+            <button type="submit" class="btn btn-success">Oui</button>
+
+            </form>
+
             </div>
         </div>
         </div>

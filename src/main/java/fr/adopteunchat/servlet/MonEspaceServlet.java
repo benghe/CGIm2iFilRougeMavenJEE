@@ -30,6 +30,22 @@ public class MonEspaceServlet extends HttpServlet{
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/mon-espace.jsp").forward(req,resp);
 	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		int personneAModifierId=(int) this.getServletContext().getAttribute("connexionId");
+		
+		PersonneDaoSql daoPersonne=new PersonneDaoSql();
+		
+		daoPersonne.deleteById(personneAModifierId);
+		
+		req.getServletContext().setAttribute("connexionId", null);
+		
+		resp.sendRedirect("compte");
+	}
+	
+	
 	
 
 }

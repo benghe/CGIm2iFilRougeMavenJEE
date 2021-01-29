@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.adopteunchat.dao.IPersonneDao;
 import fr.adopteunchat.dao.sql.PersonneDaoSql;
 import fr.adopteunchat.model.Personne;
 
@@ -46,6 +47,61 @@ public class ModificationAdoptantServlet extends HttpServlet{
 		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/modification-de-mes-infos-adoptant.jsp").forward(req,resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Personne personneAModifier=new Personne();
+		personneAModifier=(Personne) req.getSession().getAttribute("personneAModifier");
+		
+		String nomAdoptant = req.getParameter("inputLastname");
+		String prenomAdoptant = req.getParameter("inputFirstname");
+		String emailAdoptant = req.getParameter("inputEmail");
+		String phoneAdoptant = req.getParameter("inputPhone");
+		String dateOfBirthAdoptant = req.getParameter("inputDateOfBirth");
+		String adresseNumberAdoptant = req.getParameter("inputAdresseNumber");
+		String adresseStreetAdoptant = req.getParameter("inputAdresseStreet");
+		String adressePostalCodeAdoptant = req.getParameter("inputAdressePostalCode");
+		String adresseTownAdoptant = req.getParameter("inputAdresseTown");
+		String passwordAdoptant = req.getParameter("inputPassword");
+		
+		String adresseAdoptant = adresseNumberAdoptant + ", " + adresseStreetAdoptant + ", " + adressePostalCodeAdoptant
+				+ ", " + adresseTownAdoptant;
+		
+		if(!nomAdoptant.equals("")) {
+			personneAModifier.setNom(nomAdoptant);
+		}
+		
+		if(!prenomAdoptant.equals("")) {
+			personneAModifier.setPrenom(prenomAdoptant);
+		}
+		
+		if(!emailAdoptant.equals("")) {
+			personneAModifier.setMail(emailAdoptant);
+		}
+		
+		if(!phoneAdoptant.equals("")) {
+			personneAModifier.setTelephone(phoneAdoptant);
+		}
+		
+		if(!dateOfBirthAdoptant.equals("")) {
+			personneAModifier.setDateNaissance(dateOfBirthAdoptant);
+		}
+		
+		if(!adresseAdoptant.equals(", , , ")) {
+			personneAModifier.setAdresse(adresseAdoptant);
+		}
+		
+		if(!passwordAdoptant.equals("")) {
+			personneAModifier.setPassword(passwordAdoptant);
+		}
+		
+		IPersonneDao daoPersonne=new PersonneDaoSql();
+		daoPersonne.save(personneAModifier);
+		
+		resp.sendRedirect("mon-espace");
+		
+		
 	}
 	
 

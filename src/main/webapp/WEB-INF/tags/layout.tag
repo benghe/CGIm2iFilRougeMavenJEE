@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ attribute name="title" fragment="true"%>
 
 <!DOCTYPE html>
@@ -52,8 +53,25 @@
 						aria-current="page" href="accueil">Accueil</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="compte">Mon compte</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="mon-espace">Mon espace</a></li>
+						
+					<c:if test="${connexionId!=null}">
+						
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="mon-espace">Mon espace</a></li>
+						
+					</c:if>	
+						
+					<c:if test="${connexionId!=null}">
+					
+						<li class="nav-item">
+							<a class="nav-link active"
+							aria-current="page" href="deconnexion">
+								<button type="button" class="btn btn-warning">Déconnexion</button>
+							</a>
+						</li>
+					                
+					</c:if>	
+					
 				</ul>
 			</div>
 		</div>
