@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.adopteunchat.dao.IPersonneDao;
 import fr.adopteunchat.dao.sql.PersonneDaoSql;
 import fr.adopteunchat.model.Personne;
 
@@ -46,5 +47,49 @@ public class ModificationRefugeServlet extends HttpServlet{
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/modification-de-mes-infos-refuge.jsp").forward(req,resp);
 	}
 	
+	
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Personne personneAModifier=new Personne();
+		personneAModifier=(Personne) req.getSession().getAttribute("personneAModifier");
+		
+		String nomRefuge = req.getParameter("inputLastname");
+		String emailRefuge = req.getParameter("inputEmail");
+		String phoneRefuge = req.getParameter("inputPhone");
+		String adresseNumberRefuge = req.getParameter("inputAdresseNumber");
+		String adresseStreetRefuge = req.getParameter("inputAdresseStreet");
+		String adressePostalCodeRefuge = req.getParameter("inputAdressePostalCode");
+		String adresseTownRefuge = req.getParameter("inputAdresseTown");
+		String passwordRefuge = req.getParameter("inputPassword");
+		
+		String adresseRefuge = adresseNumberRefuge + ", " + adresseStreetRefuge + ", " + adressePostalCodeRefuge
+				+ ", " + adresseTownRefuge;
+		
+		if(!nomRefuge.equals("")) {
+			personneAModifier.setNom(nomRefuge);
+		}
+		
+		if(!emailRefuge.equals("")) {
+			personneAModifier.setMail(emailRefuge);
+		}
+		
+		if(!phoneRefuge.equals("")) {
+			personneAModifier.setTelephone(phoneRefuge);
+		}
+		
+		if(!adresseRefuge.equals(", , , ")) {
+			personneAModifier.setAdresse(adresseRefuge);
+		}
+		
+		if(!passwordRefuge.equals("")) {
+			personneAModifier.setPassword(passwordRefuge);
+		}
+		
+		IPersonneDao daoPersonne=new PersonneDaoSql();
+		daoPersonne.save(personneAModifier);
+		
+		resp.sendRedirect("mon-espace");
+	}
 
 }
