@@ -50,7 +50,7 @@ public class InscriptionAdoptantServlet extends HttpServlet {
 		IPersonneDao daoPersonne=new PersonneDaoSql();
 		req.setAttribute("personnes", daoPersonne.add(nouvellePersonnnne));
 		
-		resp.sendRedirect("mon-espace");
+		resp.sendRedirect("compte");
 		
 
 	}

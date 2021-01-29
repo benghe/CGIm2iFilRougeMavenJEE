@@ -19,7 +19,7 @@
 				                <label for="inputLastname" style="width: 150px;" id="inputLastname" class="col-form-label">Nom</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="text" id="inputLastname" name="inputLastname" class="form-control">
+				                <input type="text" id="inputLastname" name="inputLastname" class="form-control" required>
 				            </div>
 				        </div>
 				
@@ -29,7 +29,7 @@
 				                <label for="inputEmail" style="width: 150px;" class="col-form-label">Email</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="email" id="inputEmail" name="inputEmail" class="form-control">
+				                <input type="email" id="inputEmail" name="inputEmail" class="form-control" required>
 				            </div>
 				        </div>
 				
@@ -38,7 +38,7 @@
 				                <label for="inputPhone" style="width: 150px;" class="col-form-label">Numéro de téléphone</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="tel" id="inputPhone" name="inputPhone" class="form-control" pattern="[0-9]{10}" placeholder="06 00 00 00 00">
+				                <input type="tel" id="inputPhone" name="inputPhone" class="form-control" pattern="[0-9]{10}" placeholder="06 00 00 00 00" required>
 				            </div>
 				        </div>
 				
@@ -54,7 +54,7 @@
 				                <label for="inputAdresseNumber" style="width: 150px;" class="col-form-label">Numéro</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="text" id="inputAdresseNumber" name="inputAdresseNumber" class="form-control">
+				                <input type="text" id="inputAdresseNumber" name="inputAdresseNumber" class="form-control" required>
 				            </div>
 				        </div>
 				
@@ -63,7 +63,7 @@
 				                <label for="inputAdresseStreet" style="width: 150px;" class="col-form-label">Voie</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="text" id="inputAdresseStreet" name="inputAdresseStreet" class="form-control">
+				                <input type="text" id="inputAdresseStreet" name="inputAdresseStreet" class="form-control" required>
 				            </div>
 				        </div>
 				
@@ -72,7 +72,7 @@
 				                <label for="inputAdressePostalCode" style="width: 150px;" class="col-form-label">Code Postal</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="text" id="inputAdressePostalCode" name="inputAdressePostalCode" class="form-control">
+				                <input type="text" id="inputAdressePostalCode" name="inputAdressePostalCode" class="form-control" required>
 				            </div>
 				        </div>
 				
@@ -81,7 +81,7 @@
 				                <label for="inputAdresseTown"  style="width: 150px;" class="col-form-label">Ville</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="text" id="inputAdresseTown" name="inputAdresseTown" class="form-control">
+				                <input type="text" id="inputAdresseTown" name="inputAdresseTown" class="form-control" required>
 				            </div>
 				        </div>
 				
@@ -91,7 +91,7 @@
 				                <label for="inputPassword" style="width: 150px;" class="col-form-label">Mot de passe</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="password" id="inputPassword" name="inputPassword" class="form-control" aria-describedby="passwordHelpInline">
+				                <input type="password" id="inputPassword" name="inputPassword" class="form-control" aria-describedby="passwordHelpInline" required>
 				            </div>
 				            <div class="col-auto">
 				                <span id="passwordHelpInline" class="form-text">
@@ -107,7 +107,7 @@
 				                <label for="confPassword" style="width: 150px;" class="col-form-label">Confirmer votre mot de passe</label>
 				            </div>
 				            <div class="col-auto">
-				                <input type="password" id="confPassword" name="confPassword" class="form-control" aria-describedby="passwordHelpInline">
+				                <input type="password" id="confPassword" name="confPassword" class="form-control" aria-describedby="passwordHelpInline" required>
 				            </div>
 				        </div>
 				
