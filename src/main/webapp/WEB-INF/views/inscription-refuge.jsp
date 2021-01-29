@@ -10,7 +10,7 @@
 
     <div class="container">
 
-		<form method="POST">
+		<form method="POST" oninput='confPassword.setCustomValidity(confPassword.value != inputPassword.value ? "Passwords do not match." : "")'>
 		        
 		        
 		       
