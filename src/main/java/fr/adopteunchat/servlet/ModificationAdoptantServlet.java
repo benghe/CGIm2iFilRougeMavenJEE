@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.adopteunchat.dao.IPersonneDao;
+import fr.adopteunchat.dao.jpa.PersonneDaoJpa;
 import fr.adopteunchat.dao.sql.PersonneDaoSql;
 import fr.adopteunchat.model.Personne;
 
@@ -96,7 +97,7 @@ public class ModificationAdoptantServlet extends HttpServlet{
 			personneAModifier.setPassword(passwordAdoptant);
 		}
 		
-		IPersonneDao daoPersonne=new PersonneDaoSql();
+		IPersonneDao daoPersonne=new PersonneDaoJpa();
 		daoPersonne.save(personneAModifier);
 		
 		resp.sendRedirect("mon-espace");

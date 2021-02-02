@@ -1,15 +1,45 @@
 package fr.adopteunchat.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="personne")
 public class Personne {
+	
+	@Id //OBLIGATOIRE UNE FOIS ET UNE SEULE DANS UNE CLASSE ENTITY
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //STRATEGIE D'AUTO-INCREMENT SUR CET ID
+	@Column(name="PER_ID") // OPTIONNEL SI LE NOM DU CHAMP = LE NOM DE L'ATTRIBUT
 	private int id;
+	
+	@Column(name="PER_NOM", length = 50, nullable=false)
 	private String nom;
+	
+	@Column(name="PER_PRENOM", length = 50, nullable=false)
 	private String prenom;
+	
+	@Column(name="PER_MAIL", length = 150, nullable=false)
 	private String mail;
+	
+	@Column(name="PER_TELEPHONE", length = 20, nullable=false)
 	private String telephone;
+	
+	@Column(name="PER_ADRESSE", length = 150, nullable=false)
 	private String adresse;
+	
+	@Column(name="PER_PASSWORD", length = 300)
 	private String password;
+	
+	@Column(name="PER_DATE_NAISSANCE")
 	private String dateNaissance;
 	// private Date dateNaissance;
+	
+	@Column(name = "PER_TYPE")
 	private String type;
 
 	public int getId() {

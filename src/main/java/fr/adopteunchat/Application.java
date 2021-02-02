@@ -150,7 +150,7 @@ public class Application {
 //		System.out.println("\nFIND BY ID");
 //		System.out.println(daoChat.findById(2));
 		
-		PersonneService personneService = new PersonneService();
+//		PersonneService personneService = new PersonneService();
 		
 //		List<Personne> personnes = personneService.findAll();
 //		
@@ -163,18 +163,18 @@ public class Application {
 //
 //		personneService.add(jeannine);
 //		
-		List<Personne> personnes = personneService.findAll();
+//		List<Personne> personnes = personneService.findAll();
 		
 //		for (Personne personne : personnes) {
 //			System.out.println(personne);
 //		}
 		
-		String Date="1968-12-01";
-		Character char1=Date.charAt(4);
-		Character char2=Date.charAt(7);
-		
-		
-		System.out.println(char1.equals('-'));
+//		String Date="1968-12-01";
+//		Character char1=Date.charAt(4);
+//		Character char2=Date.charAt(7);
+//		
+//		
+//		System.out.println(char1.equals('-'));
 		
 		
 		

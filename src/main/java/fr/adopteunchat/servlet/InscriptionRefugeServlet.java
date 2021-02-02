@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.adopteunchat.dao.IPersonneDao;
-import fr.adopteunchat.dao.sql.PersonneDaoSql;
+import fr.adopteunchat.dao.jpa.PersonneDaoJpa;
 import fr.adopteunchat.model.Personne;
 
 @WebServlet(value="/inscription-refuge")
@@ -45,7 +45,7 @@ public class InscriptionRefugeServlet extends HttpServlet{
 		nouvellePersonnnne.setType("Refuge");
 		
 	
-		IPersonneDao daoPersonne=new PersonneDaoSql();
+		IPersonneDao daoPersonne=new PersonneDaoJpa();
 		req.setAttribute("personnes", daoPersonne.add(nouvellePersonnnne));
 		
 		resp.sendRedirect("compte");
