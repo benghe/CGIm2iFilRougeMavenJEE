@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.adopteunchat.dao.IPersonneDao;
-import fr.adopteunchat.dao.sql.PersonneDaoSql;
+import fr.adopteunchat.dao.jpa.PersonneDaoJpa;
 import fr.adopteunchat.model.Personne;
 
 @WebServlet(value="/compte")
@@ -25,9 +25,14 @@ public class CompteServlet extends HttpServlet{
 		String connexionEmail = req.getParameter("InputEmail");
 		String connexionPassword = req.getParameter("InputPassword");
 		
+		
 		Personne personneConnectee=new Personne();
-		PersonneDaoSql daoPersonne=new PersonneDaoSql();
+//		PersonneDaoSql daoPersonne=new PersonneDaoSql();
+		IPersonneDao daoPersonne=new PersonneDaoJpa();
 		personneConnectee=daoPersonne.findByEmail(connexionEmail);
+		
+
+
 		
 		if(personneConnectee.getNom()==null) {
 			resp.sendRedirect("compte");
@@ -35,8 +40,9 @@ public class CompteServlet extends HttpServlet{
 			
 			req.getServletContext().setAttribute("connexionId", personneConnectee.getId());
 			resp.sendRedirect("mon-espace");
-			System.out.println(this.getServletContext().getAttribute("connexionId"));
-			System.out.println(personneConnectee);
+			
+//			System.out.println(this.getServletContext().getAttribute("connexionId"));
+//			System.out.println(personneConnectee);
 			
 		}else {
 			resp.sendRedirect("compte");

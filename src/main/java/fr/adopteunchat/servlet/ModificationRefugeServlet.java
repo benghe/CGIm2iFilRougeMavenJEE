@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.adopteunchat.dao.IPersonneDao;
+import fr.adopteunchat.dao.jpa.PersonneDaoJpa;
 import fr.adopteunchat.dao.sql.PersonneDaoSql;
 import fr.adopteunchat.model.Personne;
 
@@ -63,6 +64,8 @@ public class ModificationRefugeServlet extends HttpServlet{
 		String adresseTownRefuge = req.getParameter("inputAdresseTown");
 		String passwordRefuge = req.getParameter("inputPassword");
 		
+		//Faire en sorte de mettre les anciennes valeurs si rien dans le champ pour pouvoir ne changer qu'un seul élément sans 
+		//vider les autres
 		String adresseRefuge = adresseNumberRefuge + ", " + adresseStreetRefuge + ", " + adressePostalCodeRefuge
 				+ ", " + adresseTownRefuge;
 		
@@ -86,7 +89,7 @@ public class ModificationRefugeServlet extends HttpServlet{
 			personneAModifier.setPassword(passwordRefuge);
 		}
 		
-		IPersonneDao daoPersonne=new PersonneDaoSql();
+		IPersonneDao daoPersonne=new PersonneDaoJpa();
 		daoPersonne.save(personneAModifier);
 		
 		resp.sendRedirect("mon-espace");
