@@ -66,6 +66,24 @@ public class ModificationAdoptantServlet extends HttpServlet{
 		String adresseTownAdoptant = req.getParameter("inputAdresseTown");
 		String passwordAdoptant = req.getParameter("inputPassword");
 		
+		String adressePersonneAModifier=personneAModifier.getAdresse();
+		int firstvirgule=adressePersonneAModifier.indexOf(',');
+		int secondvirgule=adressePersonneAModifier.indexOf(',', firstvirgule+1);
+		int thirdvirgule=adressePersonneAModifier.indexOf(',', secondvirgule+1);
+		
+		if(adresseNumberAdoptant.equals("")) {
+			adresseNumberAdoptant=adressePersonneAModifier.substring(0, firstvirgule);
+		}
+		if(adresseStreetAdoptant.equals("")) {
+			adresseStreetAdoptant=adressePersonneAModifier.substring(firstvirgule+2, secondvirgule);
+		}
+		if(adressePostalCodeAdoptant.equals("")) {
+			adressePostalCodeAdoptant=adressePersonneAModifier.substring(secondvirgule+2, thirdvirgule);
+		}
+		if(adresseTownAdoptant.equals("")) {
+			adresseTownAdoptant=adressePersonneAModifier.substring(thirdvirgule+2, adressePersonneAModifier.length());
+		}
+		
 		String adresseAdoptant = adresseNumberAdoptant + ", " + adresseStreetAdoptant + ", " + adressePostalCodeAdoptant
 				+ ", " + adresseTownAdoptant;
 		
@@ -89,9 +107,9 @@ public class ModificationAdoptantServlet extends HttpServlet{
 			personneAModifier.setDateNaissance(dateOfBirthAdoptant);
 		}
 		
-		if(!adresseAdoptant.equals(", , , ")) {
-			personneAModifier.setAdresse(adresseAdoptant);
-		}
+		
+		personneAModifier.setAdresse(adresseAdoptant);
+
 		
 		if(!passwordAdoptant.equals("")) {
 			personneAModifier.setPassword(passwordAdoptant);
