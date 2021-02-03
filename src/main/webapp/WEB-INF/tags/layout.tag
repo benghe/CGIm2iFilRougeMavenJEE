@@ -57,8 +57,15 @@
 					</c:if>	
 						
 					<c:if test="${connexionId!=null}">	
-						<li class="nav-item"> <a class="nav-link active" aria-current="page" href="deconnexion"> 
-							<button type="button" class="btn btn-warning btn-sm">Déconnexion</button></a></li>               
+						<a class="nav-link-inline active my-2 my-lg-0" aria-current="page" href="deconnexion"> 
+							<button class="btn btn-warning btn-sm my-2 my-sm-0">Déconnexion</button></a>             
+<!-- 						<li class="nav-item"> <a class="nav-link active" aria-current="page" href="deconnexion"> 
+							<button type="button" class="btn btn-warning btn-sm my-2 my-sm-0">Déconnexion</button></a></li>                -->
+					</c:if>	
+					
+					<c:if test="${personneType.equals('Admin')}">	
+						<li class="nav-item"> <a class="nav-link active" aria-current="page" href="reglages"> 
+							<button type="button" class="btn btn-secondary btn-sm my-2 my-sm-0"><i class="fas fa-cogs"></i></button></a></li>               
 					</c:if>	
 					
 				</ul>

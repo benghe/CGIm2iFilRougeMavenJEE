@@ -64,8 +64,24 @@ public class ModificationRefugeServlet extends HttpServlet{
 		String adresseTownRefuge = req.getParameter("inputAdresseTown");
 		String passwordRefuge = req.getParameter("inputPassword");
 		
-		//Faire en sorte de mettre les anciennes valeurs si rien dans le champ pour pouvoir ne changer qu'un seul élément sans 
-		//vider les autres
+		String adressePersonneAModifier=personneAModifier.getAdresse();
+		int firstvirgule=adressePersonneAModifier.indexOf(',');
+		int secondvirgule=adressePersonneAModifier.indexOf(',', firstvirgule+1);
+		int thirdvirgule=adressePersonneAModifier.indexOf(',', secondvirgule+1);
+		
+		if(adresseNumberRefuge.equals("")) {
+			adresseNumberRefuge=adressePersonneAModifier.substring(0, firstvirgule);
+		}
+		if(adresseStreetRefuge.equals("")) {
+			adresseStreetRefuge=adressePersonneAModifier.substring(firstvirgule+2, secondvirgule);
+		}
+		if(adressePostalCodeRefuge.equals("")) {
+			adressePostalCodeRefuge=adressePersonneAModifier.substring(secondvirgule+2, thirdvirgule);
+		}
+		if(adresseTownRefuge.equals("")) {
+			adresseTownRefuge=adressePersonneAModifier.substring(thirdvirgule+2, adressePersonneAModifier.length());
+		}
+	
 		String adresseRefuge = adresseNumberRefuge + ", " + adresseStreetRefuge + ", " + adressePostalCodeRefuge
 				+ ", " + adresseTownRefuge;
 		
@@ -81,9 +97,9 @@ public class ModificationRefugeServlet extends HttpServlet{
 			personneAModifier.setTelephone(phoneRefuge);
 		}
 		
-		if(!adresseRefuge.equals(", , , ")) {
-			personneAModifier.setAdresse(adresseRefuge);
-		}
+		
+		personneAModifier.setAdresse(adresseRefuge);
+		
 		
 		if(!passwordRefuge.equals("")) {
 			personneAModifier.setPassword(passwordRefuge);

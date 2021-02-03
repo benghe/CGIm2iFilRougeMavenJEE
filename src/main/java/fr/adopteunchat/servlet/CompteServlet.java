@@ -39,6 +39,7 @@ public class CompteServlet extends HttpServlet{
 		}else if(personneConnectee.getPassword().equals(connexionPassword)) {
 			
 			req.getServletContext().setAttribute("connexionId", personneConnectee.getId());
+			req.getServletContext().setAttribute("personneType", personneConnectee.getType());
 			resp.sendRedirect("mon-espace");
 			
 //			System.out.println(this.getServletContext().getAttribute("connexionId"));

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.adopteunchat.dao.IPersonneDao;
+import fr.adopteunchat.dao.jpa.PersonneDaoJpa;
 import fr.adopteunchat.dao.sql.PersonneDaoSql;
 import fr.adopteunchat.model.Personne;
 
@@ -24,7 +26,7 @@ public class MonEspaceServlet extends HttpServlet{
 		Personne personneAModifier=new Personne();
 		personneAModifier=daoPersonne.findById(personneAModifierId);
 		
-		System.out.println(personneAModifierId);
+		//System.out.println(personneAModifierId);
 		
 		req.getSession().setAttribute("personneAModifier", personneAModifier);
 		
@@ -34,13 +36,14 @@ public class MonEspaceServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		int personneAModifierId=(int) this.getServletContext().getAttribute("connexionId");
+		int personneASupprimerId=(int) this.getServletContext().getAttribute("connexionId");
 		
-		PersonneDaoSql daoPersonne=new PersonneDaoSql();
+		IPersonneDao daoPersonne=new PersonneDaoJpa();
 		
-		daoPersonne.deleteById(personneAModifierId);
+		daoPersonne.deleteById(personneASupprimerId);
 		
-		req.getServletContext().setAttribute("connexionId", null);
+		this.getServletContext().setAttribute("connexionId", null);
+		this.getServletContext().setAttribute("personneType", null);
 		
 		resp.sendRedirect("compte");
 	}

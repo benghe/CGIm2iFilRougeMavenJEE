@@ -1,13 +1,14 @@
 package fr.adopteunchat;
 
-import java.util.List;
-
-import fr.adopteunchat.dao.IChatDao;
-import fr.adopteunchat.dao.sql.ChatDaoSql;
-import fr.adopteunchat.front.ConsoleMenu;
-import fr.adopteunchat.model.Chat;
-import fr.adopteunchat.model.Personne;
-import fr.adopteunchat.service.PersonneService;
+import fr.adopteunchat.dao.IColorDao;
+import fr.adopteunchat.dao.IDepartementDao;
+import fr.adopteunchat.dao.IRegionDao;
+import fr.adopteunchat.dao.jpa.ColorDaoJpa;
+import fr.adopteunchat.dao.jpa.DepartementDaoJpa;
+import fr.adopteunchat.dao.jpa.RegionDaoJpa;
+import fr.adopteunchat.model.Color;
+import fr.adopteunchat.model.Departement;
+import fr.adopteunchat.model.Region;
 
 public class Application {
 
@@ -176,8 +177,24 @@ public class Application {
 //		
 //		System.out.println(char1.equals('-'));
 		
+//		IRaceDao raceDao = new RaceDaoJpa();
+//		
+//		Race persan = new Race("Persan");
+//		
+//		raceDao.add(persan);
+//		
 		
+//		IColorDao colorDao = new ColorDaoJpa();
+//		Color roux = new Color("roux");
+//		colorDao.add(roux);
 		
+		IRegionDao regionDao = new RegionDaoJpa();
+		Region nouvelleAquitaine = new Region("Nouvelle Aquitaine");
+		regionDao.add(nouvelleAquitaine);
+		
+		IDepartementDao departementDeao = new DepartementDaoJpa();
+		Departement pasDeCalais = new Departement("Pas de Calais", 1);
+		departementDeao.add(pasDeCalais);
 		
 	}
 
