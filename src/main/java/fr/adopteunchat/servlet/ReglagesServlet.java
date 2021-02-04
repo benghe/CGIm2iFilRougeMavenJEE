@@ -42,28 +42,28 @@ public class ReglagesServlet extends HttpServlet{
 			
 		}
 		
-		if(reglagesSection.equals("races")) {
+		else if(reglagesSection.equals("races")) {
 			
 			IRaceDao daoRace=new RaceDaoJpa();
 			this.getServletContext().setAttribute("races", daoRace.findAll());
 
 		}
 		
-		if(reglagesSection.equals("couleurs")) {
+		else if(reglagesSection.equals("couleurs")) {
 			
 			IColorDao daoColor=new ColorDaoJpa();
 			this.getServletContext().setAttribute("couleurs", daoColor.findAll());
 
 		}
 		
-		if(reglagesSection.equals("regions")) {
+		else if(reglagesSection.equals("regions")) {
 			
 			IRegionDao daoRegion=new RegionDaoJpa();
 			this.getServletContext().setAttribute("regions", daoRegion.findAll());
 
 		}
 		
-		if(reglagesSection.equals("departements")) {
+		else if(reglagesSection.equals("departements")) {
 			
 			IDepartementDao daoDepartement=new DepartementDaoJpa();
 			this.getServletContext().setAttribute("departements", daoDepartement.findAll());
