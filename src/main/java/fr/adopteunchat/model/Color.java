@@ -42,5 +42,8 @@ public class Color {
 		this.libelle = libelle;
 	}
 	
+	public Color() {
+	}
+	
 	
 }

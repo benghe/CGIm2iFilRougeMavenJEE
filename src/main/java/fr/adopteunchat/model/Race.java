@@ -42,5 +42,9 @@ public class Race {
 		this.libelle = libelle;
 	}
 	
+	public Race() {
+		
+	}
+	
 
 }

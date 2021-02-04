@@ -1,10 +1,18 @@
 package fr.adopteunchat.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+
+@Entity //Obigatoire
+@Table(name="region") //Pas obligatoire
 public class Region {
 	@Id //OBLIGATOIRE UNE FOIS ET UNE SEULE DANS UNE CLASSE ENTITY
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //STRATEGIE D'AUTO-INCREMENT SUR CET ID
@@ -14,6 +22,9 @@ public class Region {
 	
 	@Column(name="REGION_LIBELLE", length=50,nullable=false)
 	private String libelle;
+	
+	@OneToMany(mappedBy = "region") //(car s'appelle "region" dans Departement)
+	private List<Departement> departements;
 
 	public int getId() {
 		return id;
@@ -31,6 +42,14 @@ public class Region {
 		this.libelle = libelle;
 	}
 
+	public List<Departement> getDepartements() {
+		return departements;
+	}
+	
+	public void setDepartements(List<Departement> departements) {
+		this.departements = departements;
+	}
+	
 	/**
 	 * @param id
 	 * @param libelle
@@ -41,11 +60,15 @@ public class Region {
 	}
 	
 	
+
 	/**
 	 	 * @param libelle
 	 */
 	public Region(String libelle) {
 		this.libelle = libelle;
+	}
+	
+	public Region() {
 	}
 	
 	
