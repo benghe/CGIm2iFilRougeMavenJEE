@@ -8,7 +8,18 @@
 
 	<jsp:body>
 	
-				
+	<div>
+		<a class="btn btn-primary" href="reglages?r=comptes" role="button">Comptes</a>
+		<a class="btn btn-primary" href="reglages?r=races" role="button">Races</a>
+		<a class="btn btn-primary" href="reglages?r=couleurs" role="button">Couleurs</a>
+		<a class="btn btn-primary" href="reglages?r=regions" role="button">Régions</a>
+		<a class="btn btn-primary" href="reglages?r=departements" role="button">Départements</a>
+	
+	</div>
+	
+	<c:if test="${ reglagesSection==null || reglagesSection.equals('comptes') }">
+	
+	
 			<table class="table">
 			  <thead>
 			    <tr>
@@ -43,6 +54,161 @@
 			  	
 			  </tbody>
 			</table>
+	
+	
+	</c:if>
+	
+	
+	<c:if test="${ reglagesSection.equals('races') }">
+	
+	
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Libellé</th>
+			      <th scope="col">Actions</th>
+			     
+			    </tr>
+			  </thead>
+			  <tbody>
+			  
+			  	<c:forEach var="race" items="${ races }">
+			  		
+			  		<tr>
+				      <th scope="row">${ race.id }</th>
+				      <td>${ race.libelle }</td>
+				      <td>
+				      	
+				        <a href="reglages-supprimer?id=${ race.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				      	
+				      </td>
+				      
+				     
+			    	</tr>
+			  		
+			  		
+			  	</c:forEach>
+			  	
+			  </tbody>
+			</table>
+	
+	
+	</c:if>
+	
+	<c:if test="${ reglagesSection.equals('couleurs') }">
+	
+	
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Libellé</th>
+			      <th scope="col">Actions</th>
+			     
+			    </tr>
+			  </thead>
+			  <tbody>
+			  
+			  	<c:forEach var="couleur" items="${ couleurs }">
+			  		
+			  		<tr>
+				      <th scope="row">${ couleur.id }</th>
+				      <td>${ couleur.libelle }</td>
+				      <td>
+				      	
+				        <a href="reglages-supprimer?id=${ couleur.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				      	
+				      </td>
+				      
+				     
+			    	</tr>
+			  		
+			  		
+			  	</c:forEach>
+			  	
+			  </tbody>
+			</table>
+	
+	
+	</c:if>
+	
+	<c:if test="${ reglagesSection.equals('regions') }">
+	
+	
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Libellé</th>
+			      <th scope="col">Actions</th>
+			     
+			    </tr>
+			  </thead>
+			  <tbody>
+			  
+			  	<c:forEach var="region" items="${ regions }">
+			  		
+			  		<tr>
+				      <th scope="row">${ region.id }</th>
+				      <td>${ region.libelle }</td>
+				      <td>
+				      	
+				        <a href="reglages-supprimer?id=${ region.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				      	
+				      </td>
+				      
+				     
+			    	</tr>
+			  		
+			  		
+			  	</c:forEach>
+			  	
+			  </tbody>
+			</table>
+	
+	
+	</c:if>
+	
+		<c:if test="${ reglagesSection.equals('departements') }">
+	
+	
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">ID</th>
+			      <th scope="col">Libellé</th>
+			      <th scope="col">Région</th>
+			      <th scope="col">Actions</th>
+			     
+			    </tr>
+			  </thead>
+			  <tbody>
+			  
+			  	<c:forEach var="departement" items="${ departements }">
+			  		
+			  		<tr>
+				      <th scope="row">${ departement.id }</th>
+				      <td>${ departement.libelle }</td>
+				      <td>${ departement.region.libelle }</td>
+				      <td>
+				      	
+				        <a href="reglages-supprimer?id=${ departement.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				      	
+				      </td>
+				      
+				     
+			    	</tr>
+			  		
+			  		
+			  	</c:forEach>
+			  	
+			  </tbody>
+			</table>
+	
+	
+	</c:if>
+				
 			
 
 	</jsp:body>

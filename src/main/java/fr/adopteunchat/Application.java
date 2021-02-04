@@ -1,12 +1,9 @@
 package fr.adopteunchat;
 
-import fr.adopteunchat.dao.IColorDao;
 import fr.adopteunchat.dao.IDepartementDao;
 import fr.adopteunchat.dao.IRegionDao;
-import fr.adopteunchat.dao.jpa.ColorDaoJpa;
 import fr.adopteunchat.dao.jpa.DepartementDaoJpa;
 import fr.adopteunchat.dao.jpa.RegionDaoJpa;
-import fr.adopteunchat.model.Color;
 import fr.adopteunchat.model.Departement;
 import fr.adopteunchat.model.Region;
 
@@ -193,7 +190,7 @@ public class Application {
 		regionDao.add(nouvelleAquitaine);
 		
 		IDepartementDao departementDeao = new DepartementDaoJpa();
-		Departement pasDeCalais = new Departement("Pas de Calais", 1);
+		Departement pasDeCalais = new Departement("Pas de Calais", nouvelleAquitaine);
 		departementDeao.add(pasDeCalais);
 		
 	}

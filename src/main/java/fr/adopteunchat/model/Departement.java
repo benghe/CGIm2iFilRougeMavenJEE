@@ -1,11 +1,18 @@
 package fr.adopteunchat.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity //Obigatoire
+@Table(name="dpt") //Pas obligatoire
 public class Departement {
+	
 	@Id //OBLIGATOIRE UNE FOIS ET UNE SEULE DANS UNE CLASSE ENTITY
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //STRATEGIE D'AUTO-INCREMENT SUR CET ID
 	@Column(name="DPT_ID") // OPTIONNEL SI LE NOM DU CHAMP = LE NOM DE L'ATTRIBUT
@@ -15,8 +22,12 @@ public class Departement {
 	@Column(name="DPT_LIBELLE", length=50,nullable=false)
 	private String libelle;
 	
-	@Column(name="DPT_REGION",nullable=false)
-	private int region_id;
+//	@Column(name="DPT_REGION",nullable=false)
+//	private int region_id;
+	
+	@ManyToOne
+	@JoinColumn(name ="DPT_REGION")
+	private Region region;
 
 	public int getId() {
 		return id;
@@ -34,33 +45,25 @@ public class Departement {
 		this.libelle = libelle;
 	}
 
-	public int getRegion_id() {
-		return region_id;
+	public Region getRegion() {
+		return region;
 	}
 
-	public void setRegion_id(int region_id) {
-		this.region_id = region_id;
+	public void setRegion(Region region) {
+		this.region = region;
 	}
 
 	/**
-	 * @param id
 	 * @param libelle
-	 * @param region_id
+	 * @param region
 	 */
-	public Departement(int id, String libelle, int region_id) {
-		this.id = id;
+	public Departement(String libelle, Region region) {
 		this.libelle = libelle;
-		this.region_id = region_id;
+		this.region = region;
 	}
 	
-	
-	/**
-	 * @param libelle
-	 * @param region_id
-	 */
-	public Departement(String libelle, int region_id) {
-		this.libelle = libelle;
-		this.region_id = region_id;
+	public Departement() {
 	}
+
 	
 }
