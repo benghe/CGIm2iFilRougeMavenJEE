@@ -41,7 +41,7 @@
 				      <td>
 				      	<c:if test="${ connexionId!= personne.id }">
 				      	
-				        	<a href="reglages-supprimer?id=${ personne.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				        	<a href="reglages-supprimer?r=comptes?id=${ personne.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
 				      	
 				      	</c:if>
 				      </td>
@@ -80,7 +80,7 @@
 				      <td>${ race.libelle }</td>
 				      <td>
 				      	
-				        <a href="reglages-supprimer?id=${ race.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				        <a href="reglages-supprimer?r=races?id=${ race.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
 				      	
 				      </td>
 				      
@@ -117,7 +117,7 @@
 				      <td>${ couleur.libelle }</td>
 				      <td>
 				      	
-				        <a href="reglages-supprimer?id=${ couleur.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				        <a href="reglages-supprimer?r=couleurs?id=${ couleur.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
 				      	
 				      </td>
 				      
@@ -154,7 +154,7 @@
 				      <td>${ region.libelle }</td>
 				      <td>
 				      	
-				        <a href="reglages-supprimer?id=${ region.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				        <a href="reglages-supprimer?r=regions?id=${ region.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
 				      	
 				      </td>
 				      
@@ -193,7 +193,7 @@
 				      <td>${ departement.region.libelle }</td>
 				      <td>
 				      	
-				        <a href="reglages-supprimer?id=${ departement.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
+				        <a href="reglages-supprimer?r=departements?id=${ departement.id }"> <i style="color:red;" class="far fa-trash-alt"></i> </a>
 				      	
 				      </td>
 				      
